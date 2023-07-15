@@ -80,9 +80,9 @@ app.post('/put_db', uploadmul.single('image'),(req,res)=>{
 
 app.post('/getByRoll', (req, res) => {
 
-    console.log(req.config)
-    console.log(req.body)
-    console.log(req.params)
+    // console.log(req.config)
+    // console.log(req.body)
+    // console.log(req.params)
 
     student.find({rollno:req.body.rollno}).then((data)=>{ res.send({ items: data });})
   });

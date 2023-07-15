@@ -19,8 +19,8 @@ function Studentform() {
  
 
     <div className='form-group col-lg-4'>
-<label htmlFor="A" className='control-label fw-bold' style={{fontSize:"25px"}}>Age :</label>
-<input name="age" type="number" className='form-control form-control-lg border border-3 border-dark' id='age' required placeholder='Enter age Number' />
+<label htmlFor="A" className='control-label fw-bold' style={{fontSize:"25px"}} >Age :</label>
+<input name="age" type="number" min="15" max="100" className='form-control form-control-lg border border-3 border-dark' id='age' required placeholder='Enter age Number' />
  </div>
  
  </div>
@@ -29,8 +29,8 @@ function Studentform() {
  <div className='row p-3 '>
 
     <div className='form-group col-lg-4'>
-<label htmlFor="rollno" className='control-label fw-bold' style={{fontSize:"25px"}}>Roll no :</label>
-<input name="rollno" type="number" className='form-control form-control-lg border border-3 border-dark'  required id='rollno' placeholder='Enter roll no :' />
+<label htmlFor="rollno" className='control-label fw-bold' style={{fontSize:"25px"}} >Roll no :</label>
+<input name="rollno" type="text" className='form-control form-control-lg border border-3 border-dark'  required id='rollno' placeholder='Enter roll no :' />
  </div>
  
 
@@ -51,22 +51,22 @@ function Studentform() {
  <div className='row p-3 '>
 
     <div className='form-group col-lg-4'>
-<label htmlFor="maths" className='control-label fw-bold' style={{fontSize:"25px"}}>Maths marks :</label>
-<input name="maths" type="number" className='form-control form-control-lg border border-3 border-dark' required  id='maths' placeholder='Enter Phone Number' />
+<label htmlFor="maths" className='control-label fw-bold' style={{fontSize:"25px"}}  >Maths marks :</label>
+<input name="maths" type="number" className='form-control form-control-lg border border-3 border-dark' min="0" max="100" required  id='maths' placeholder='Enter Phone Number' />
  </div>
  
  
 
     <div className='form-group col-lg-4'>
-<label htmlFor="physics" className='control-label fw-bold' style={{fontSize:"25px"}}>Physics marks :</label>
-<input name="physics" type="number" className='form-control form-control-lg border border-3 border-dark' required  id='physics' placeholder='Enter Phone Number' />
+<label htmlFor="physics" className='control-label fw-bold' style={{fontSize:"25px"}}  >Physics marks :</label>
+<input name="physics" type="number" className='form-control form-control-lg border border-3 border-dark' min="0" max="100" required  id='physics' placeholder='Enter Phone Number' />
  </div>
  
 
 
     <div className='form-group col-lg-4'>
-<label htmlFor="chemistry" className='control-label fw-bold' style={{fontSize:"25px"}}>Chemistry marks :</label>
-<input name="chemistry" type="number" className='form-control form-control-lg border border-3 border-dark'  required id='chemistry' placeholder='Enter Phone Number' />
+<label htmlFor="chemistry" className='control-label fw-bold' style={{fontSize:"25px"}} >Chemistry marks :</label>
+<input name="chemistry" type="number" className='form-control form-control-lg border border-3 border-dark' min="0" max="100" required id='chemistry' placeholder='Enter Phone Number' />
  </div>
  
  </div>

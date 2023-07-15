@@ -1,5 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
+import {Modal} from 'react-bootstrap'; 
+
 
 
 
@@ -8,6 +10,12 @@ const SearchByCollege=()=> {
     const [college,setCollege]=useState("");
     const [temp,setTemp]=useState(0);
     const [students,setData]=useState([]);
+
+    const [show, setShow] = useState(false);
+    const [index,setIndex]=useState(0);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
    
     const getdetails=async()=>{
     await axios.post('http://localhost:5000/getByCollege',{  college:college  }).then((res)=>{
@@ -64,27 +72,60 @@ const SearchByCollege=()=> {
                         <th>Physics</th>
                     
                         <th>Chemistry</th>
+                        <th>Average</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
-                        students.map((student)=>{
+                        students.map((student,ind)=>{
                             return (
-                            <>
-                               <td>{student.rollno}</td>
-                                <td>{student.name}</td>
-                                <td>{student.age}</td>
-                                <td>{student.college}</td>
-                                <td>{student.dept}</td>
-                                <td>{student.maths}</td>
-                                <td>{student.physics}</td>
-                                <td>{student.chemistry}</td>
-                            </>
+                                <tr key={ind}>
+                            
+                            <td onClick={()=>{setIndex(ind);handleShow();}} style={{cursor:"pointer"}} className='fw-bolder ' >{student.rollno}</td>
+                             <td>{student.name}</td>
+                             <td>{student.age}</td>
+                             <td>{student.college}</td>
+                             <td>{student.dept}</td>
+                             <td>{student.maths}</td>
+                             <td>{student.physics}</td>
+                             <td>{student.chemistry}</td>
+                             <td>{Number((student.maths+student.chemistry+student.physics)/3).toFixed(2)}</td>
+                         
+                         </tr>
                             )
                         })
                     }
                 </tbody>
             </table>
+
+
+            <Modal centered show={show} onHide={handleClose}>  
+      <Modal.Header  className='bg-dark'>  
+        <Modal.Title className='text-light'>{students[index].rollno}</Modal.Title>  
+      </Modal.Header>  
+  
+      <Modal.Body>  
+        <div className='container modal__body'>
+          <div className='row'>
+                    <div className='col-md-6'>
+                    <img src={"data:"+students[index].image.contentType+";base64,"+ btoa(String.fromCharCode.apply(null, new Uint8Array(students[index].image.data.data)))} alt="" style={{width:"100%", height:"100%"}} />
+                    </div>
+                    <div className='col-md-6'>
+                     <div> Name: {students[index].name}</div>
+                      <div>Age: {students[index].age}</div>
+                     <div> Roll no: {students[index].rollno}</div>
+                     <div>Department: {students[index].dept}</div> 
+                     <div> College: {students[index].college}</div>
+                      
+                    </div>
+          </div>
+        </div>
+      </Modal.Body>  
+  
+      <Modal.Footer>  
+        <button className='btn btn-danger' onClick={handleClose}>Close Modal</button>   
+      </Modal.Footer>  
+</Modal> 
        
 
 

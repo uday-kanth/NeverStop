@@ -21,16 +21,16 @@ const App=()=> {
   </button>
   <div className="collapse navbar-collapse" id="navbarNav">
     <ul className="navbar-nav">
-      <li className="nav-item active">
+      <li className="nav-item  p-3">
         <a className="nav-link" href="#" onClick={()=>{setChoice(0)}}><h3>Enter Details</h3> </a>
       </li>
-      <li className="nav-item">
+      <li className="nav-item p-3">
         <a className="nav-link" href="#" onClick={()=>{setChoice(2)}}><h3>Search by college</h3></a>
       </li>
-      <li className="nav-item">
+      <li className="nav-item p-3">
         <a className="nav-link" href="#" onClick={()=>{setChoice(1)}}><h3>Search by roll</h3></a>
       </li>
-      <li className="nav-item">
+      <li className="nav-item p-3">
         <a className="nav-link fw" href="#" onClick={()=>{setChoice(3)}}><h3>Search by department</h3></a>
       </li>
     </ul>
@@ -46,19 +46,19 @@ const App=()=> {
 
     }
 
-    { choice===1 && <div className='container justify-content-center' style={{ width:'60%' }}>
+    { choice===1 && <div className='container my-5 justify-content-center' style={{ width:'70%' }}>
         <SearchByRoll></SearchByRoll>
 
     </div>
 
     }
-    { choice===2 && <div className='container justify-content-center' style={{ width:'60%' }}>
+    { choice===2 && <div className='container my-5 justify-content-center' style={{ width:'70%' }}>
         <SearchByCollege></SearchByCollege>
 
     </div>
 
     }
-    { choice===3 && <div className='container justify-content-center' style={{ width:'60%' }}>
+    { choice===3 && <div className='container my-5 justify-content-center' style={{ width:'70%' }}>
         <SearchByDepartment></SearchByDepartment>
 
     </div>
