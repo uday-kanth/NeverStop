@@ -1,10 +1,33 @@
 import React from 'react'
+import axios from 'axios'
 
 function Studentform() {
+
+
+
+const handleSubmit=async(e)=>{
+    e.preventDefault();
+    let temp=document.getElementById('rollno').value;
+    await axios.post('http://localhost:5000/getByRoll',{  rollno:temp  }).then((res)=>{
+        console.log(res.data.items.length)
+        if(res.data.items.length>0){
+            alert("record already exist for this roll no");
+            return false;
+        }
+        else{
+            let formvar=document.getElementById('student_form');
+            //formvar.submit();
+            alert("the record has been inserted");
+        }
+    });
+    
+
+}
+
  
   return (
     <div className='container'>
-    <form className='form-horizontal' id='candi_form' onSubmit={()=>{alert("the data has been inserted")}}  method='POST' action="http://localhost:5000/put_db" encType='multipart/form-data' >
+    <form className='form-horizontal' id='student_form' onSubmit={(e)=>{handleSubmit(e)}}  method='POST' action="http://localhost:5000/put_db" encType='multipart/form-data' >
 
 
 

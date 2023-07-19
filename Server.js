@@ -21,7 +21,7 @@ var storage = multer.diskStorage({
  
 var uploadmul = multer({ storage: storage });
 
-
+//const mongoDB = "mongodb://localhost:27017/Details";
 const mongoDB = "mongodb+srv://Uday:Uday123$@cluster0.ogd06qh.mongodb.net/?retryWrites=true&w=majority";
 try{
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true }).then(()=>{
