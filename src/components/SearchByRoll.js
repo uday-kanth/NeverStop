@@ -118,7 +118,7 @@ const SearchByRoll=()=> {
       </Modal.Body>  
   
       <Modal.Footer>  
-        <button className='btn btn-danger' onClick={handleClose}>Close Modal</button>   
+        <button className='btn btn-danger' onClick={handleClose}>Close</button>   
       </Modal.Footer>  
 </Modal> 
 
